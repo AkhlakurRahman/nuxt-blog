@@ -1,7 +1,5 @@
 <template>
   <div class="single-post">
-    <h3>Single Post</h3>
-
     <section class="post">
       <h1>Title of the post</h1>
       <div class="post__details">
@@ -13,4 +11,28 @@
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post h1 {
+  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.84);
+  margin: 3rem 0;
+}
+
+.post__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.post p {
+  font-size: 1.6rem;
+}
+</style>

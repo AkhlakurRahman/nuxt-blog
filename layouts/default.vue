@@ -22,5 +22,7 @@ body {
   font-family: "Fira Sans", arial, sans-serif;
   font-weight: 300;
   line-height: 1.6;
+  max-width: 95rem;
+  margin: 0 auto;
 }
 </style>
