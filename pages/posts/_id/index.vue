@@ -20,7 +20,6 @@
 
 .post h1 {
   font-size: 2.5rem;
-  color: rgba(0, 0, 0, 0.84);
   margin: 3rem 0;
 }
 

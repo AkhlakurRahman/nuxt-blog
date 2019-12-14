@@ -1,8 +1,19 @@
 <template>
   <div>
+    <TheHeader />
     <nuxt />
   </div>
 </template>
+
+<script>
+import TheHeader from "@/components/TheHeader";
+
+export default {
+  components: {
+    TheHeader
+  }
+};
+</script>
 
 <style>
 *,
@@ -22,7 +33,16 @@ body {
   font-family: "Fira Sans", arial, sans-serif;
   font-weight: 300;
   line-height: 1.6;
-  max-width: 95rem;
+  max-width: 70vw;
   margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgba(0, 0, 0, 0.84);
 }
 </style>
