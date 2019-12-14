@@ -11,7 +11,7 @@
       </section>
       <section class="existing-posts">
         <h3>Existing Posts</h3>
-        <PostList />
+        <PostList editable />
       </section>
     </div>
   </div>

@@ -54,6 +54,7 @@ export default {
   box-sizing: border-box;
   font-size: 1.6rem;
   font-weight: 300;
+  font-family: inherit;
   border: 1px solid #ccc;
   padding: 5px;
 

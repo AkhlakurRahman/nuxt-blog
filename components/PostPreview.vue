@@ -1,7 +1,7 @@
 <template>
   <article class="post-preview">
     <div class="post-content">
-      <nuxt-link :to="'/posts/' + id"
+      <nuxt-link :to="editOrViewPost"
         ><h4>{{ postTitle }}</h4></nuxt-link
       >
       <p>{{ previewText }}</p>
@@ -29,6 +29,15 @@ export default {
     postThumbnail: {
       type: String,
       required: true
+    },
+    editable: {
+      type: Boolean,
+      required: true
+    }
+  },
+  computed: {
+    editOrViewPost() {
+      return this.editable ? `profile/${this.id}` : `posts/${this.id}`;
     }
   }
 };

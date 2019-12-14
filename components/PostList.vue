@@ -1,18 +1,21 @@
 <template>
   <section class="featured-posts">
     <PostPreview
+      :editable="editable"
       id="1"
       postTitle="First Title"
       previewText="First preview content"
       postThumbnail="https://cdn.acodez.in/wp-content/uploads/2019/08/What-is-Javascript-used-for.jpg"
     />
     <PostPreview
+      :editable="editable"
       id="2"
       postTitle="Second Title"
       previewText="Second preview content"
       postThumbnail="https://cdn.acodez.in/wp-content/uploads/2019/08/What-is-Javascript-used-for.jpg"
     />
     <PostPreview
+      :editable="editable"
       id="3"
       postTitle="Third Title"
       previewText="Third preview content"
@@ -26,6 +29,12 @@ import PostPreview from "@/components/PostPreview";
 export default {
   components: {
     PostPreview
+  },
+  props: {
+    editable: {
+      type: Boolean,
+      default: false
+    }
   }
 };
 </script>
