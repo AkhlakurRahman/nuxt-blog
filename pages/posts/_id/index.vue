@@ -1,15 +1,30 @@
 <template>
   <div class="single-post">
     <section class="post">
-      <h1>Title of the post</h1>
+      <h1>{{ fetchedPost.postTitle }}</h1>
       <div class="post__details">
-        <div>Published on XXXX</div>
-        <div>Writer Name</div>
+        <div>{{ fetchedPost.createdAt }}</div>
+        <div>{{ fetchedPost.authorName }}</div>
       </div>
-      <p class="content">Post content</p>
+      <p class="content">{{ fetchedPost.postContent }}</p>
     </section>
   </div>
 </template>
+
+<script>
+import axios from "axios";
+
+export default {
+  async asyncData(context) {
+    const res = await axios.get(
+      `https://tech-update-4e7f6.firebaseio.com/posts/${context.params.id}.json`
+    );
+    return {
+      fetchedPost: res.data
+    };
+  }
+};
+</script>
 
 <style scoped>
 .post {

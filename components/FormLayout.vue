@@ -6,7 +6,7 @@
     <AppControlInput v-model="fieldData.postTitle" focusAttr="postTitle"
       >Title</AppControlInput
     >
-    <AppControlInput v-model="fieldData.thumbnailLink" focusAttr="thumbnailLink"
+    <AppControlInput v-model="fieldData.postThumbnail" focusAttr="thumbnailLink"
       >Thumbnail Link</AppControlInput
     >
     <AppControlInput
@@ -41,15 +41,14 @@ export default {
         : {
             authorName: "",
             postTitle: "",
-            thumbnailLink: "",
+            postThumbnail: "",
             postContent: ""
           }
     };
   },
   methods: {
     onSubmit() {
-      // Publish post
-      console.log(this.fieldData);
+      this.$emit("onSubmit", this.fieldData);
     }
   }
 };
