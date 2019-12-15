@@ -1,25 +1,13 @@
 <template>
   <section class="featured-posts">
     <PostPreview
+      v-for="post in posts"
+      :key="post.id"
       :editable="editable"
-      id="1"
-      postTitle="First Title"
-      previewText="First preview content"
-      postThumbnail="https://cdn.acodez.in/wp-content/uploads/2019/08/What-is-Javascript-used-for.jpg"
-    />
-    <PostPreview
-      :editable="editable"
-      id="2"
-      postTitle="Second Title"
-      previewText="Second preview content"
-      postThumbnail="https://cdn.acodez.in/wp-content/uploads/2019/08/What-is-Javascript-used-for.jpg"
-    />
-    <PostPreview
-      :editable="editable"
-      id="3"
-      postTitle="Third Title"
-      previewText="Third preview content"
-      postThumbnail="https://cdn.acodez.in/wp-content/uploads/2019/08/What-is-Javascript-used-for.jpg"
+      :id="post.id"
+      :postTitle="post.postTitle"
+      :postContent="post.postContent"
+      :postThumbnail="post.postThumbnail"
     />
   </section>
 </template>
@@ -34,6 +22,10 @@ export default {
     editable: {
       type: Boolean,
       default: false
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 };

@@ -3,6 +3,7 @@
     <label :for="focusAttr"><slot /></label>
     <input
       v-if="controlType === 'input'"
+      v-bind="$attrs"
       :id="focusAttr"
       :value="value"
       @input="$emit('input', $event.target.value)"
@@ -10,6 +11,7 @@
     <textarea
       v-if="controlType === 'textarea'"
       rows="10"
+      v-bind="$attrs"
       :id="focusAttr"
       :value="value"
       @input="$emit('input', $event.target.value)"

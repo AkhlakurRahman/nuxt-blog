@@ -4,7 +4,7 @@
       <nuxt-link :to="editOrViewPost"
         ><h4>{{ postTitle }}</h4></nuxt-link
       >
-      <p>{{ previewText }}</p>
+      <p>{{ postContent }}</p>
     </div>
     <img class="post-thumbnail" :src="postThumbnail" :alt="postTitle" />
   </article>
@@ -22,7 +22,7 @@ export default {
       type: String,
       required: true
     },
-    previewText: {
+    postContent: {
       type: String,
       required: true
     },

@@ -7,7 +7,12 @@
       <ul class="nav-list">
         <li class="nav-item"><nuxt-link to="/posts">Articles</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
-        <li class="nav-item"><nuxt-link to="/profile">Profile</nuxt-link></li>
+        <li class="nav-item">
+          <nuxt-link to="/profile/auth">Log in</nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link to="/profile">Profile</nuxt-link>
+        </li>
       </ul>
     </nav>
   </div>
