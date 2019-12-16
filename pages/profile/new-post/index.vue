@@ -15,11 +15,12 @@ export default {
   },
   methods: {
     async onSubmit(fieldData) {
-      const res = await axios.post(
-        "https://tech-update-4e7f6.firebaseio.com/posts.json",
-        { ...fieldData, createdAt: new Date() }
-      );
-      this.$router.push("/profile");
+      try {
+        await this.$store.dispatch("addPost", fieldData);
+        this.$router.push("/profile");
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };

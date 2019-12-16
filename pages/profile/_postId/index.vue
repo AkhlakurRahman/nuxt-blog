@@ -23,7 +23,7 @@ export default {
         `https://tech-update-4e7f6.firebaseio.com/posts/${context.params.postId}.json`
       );
       return {
-        fetchedPost: res.data
+        fetchedPost: { ...res.data, id: context.params.postId }
       };
     } catch (error) {
       console.log(error);
@@ -32,10 +32,7 @@ export default {
   methods: {
     async onSubmit(fieldData) {
       try {
-        const res = await axios.put(
-          `https://tech-update-4e7f6.firebaseio.com/posts/${this.$route.params.postId}.json`,
-          fieldData
-        );
+        await this.$store.dispatch("editPost", fieldData);
         this.$router.push("/profile");
       } catch (error) {
         console.log(error);
