@@ -6,12 +6,7 @@
 </template>
 
 <script>
-import PostList from "@/components/PostList";
-
 export default {
-  components: {
-    PostList
-  },
   computed: {
     fetchedPosts() {
       return this.$store.getters.fetchedPosts;

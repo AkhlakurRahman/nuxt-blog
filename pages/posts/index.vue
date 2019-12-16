@@ -1,16 +1,16 @@
 <template>
   <div class="posts-page">
     <h3>Articles</h3>
-    <PostList />
+    <PostList :posts="fetchedPosts" />
   </div>
 </template>
 
 <script>
-import PostList from "@/components/PostList";
-
 export default {
-  components: {
-    PostList
+  computed: {
+    fetchedPosts() {
+      return this.$store.getters.fetchedPosts;
+    }
   }
 };
 </script>
