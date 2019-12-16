@@ -19,7 +19,7 @@ export default {
         "https://tech-update-4e7f6.firebaseio.com/posts.json",
         { ...fieldData, createdAt: new Date() }
       );
-      console.log(res.data);
+      this.$router.push("/profile");
     }
   }
 };

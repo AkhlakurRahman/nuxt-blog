@@ -11,7 +11,7 @@
       </section>
       <section class="existing-posts">
         <h3>Existing Posts</h3>
-        <PostList editable />
+        <PostList :posts="fetchedPosts" editable />
       </section>
     </div>
   </div>
@@ -25,6 +25,11 @@ export default {
   components: {
     PostList,
     AppButton
+  },
+  computed: {
+    fetchedPosts() {
+      return this.$store.getters.fetchedPosts;
+    }
   }
 };
 </script>
