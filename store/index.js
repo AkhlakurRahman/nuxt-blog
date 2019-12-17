@@ -47,7 +47,7 @@ export const actions = {
     try {
       const newPost = { ...post, createdAt: new Date() };
       const res = await axios.post(
-        "https://tech-update-4e7f6.firebaseio.com/posts.json",
+        `https://tech-update-4e7f6.firebaseio.com/posts.json?auth=${vuexContext.state.token}`,
         newPost
       );
       return vuexContext.commit("addPost", { ...newPost, id: res.data.name });
@@ -60,7 +60,7 @@ export const actions = {
   async editPost(vuexContext, editedPost) {
     try {
       await axios.put(
-        `https://tech-update-4e7f6.firebaseio.com/posts/${editedPost.id}.json`,
+        `https://tech-update-4e7f6.firebaseio.com/posts/${editedPost.id}.json?auth=${vuexContext.state.token}`,
         editedPost
       );
 
