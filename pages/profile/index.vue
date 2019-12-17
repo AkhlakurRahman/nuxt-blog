@@ -19,6 +19,7 @@
 
 <script>
 export default {
+  middleware: "checkIfUserIsAuthenticated",
   computed: {
     fetchedPosts() {
       return this.$store.getters.fetchedPosts;

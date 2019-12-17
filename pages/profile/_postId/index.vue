@@ -9,6 +9,7 @@ import axios from "axios";
 import FormLayout from "@/components/FormLayout";
 
 export default {
+  middleware: "checkIfUserIsAuthenticated",
   components: {
     FormLayout
   },

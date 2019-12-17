@@ -98,5 +98,8 @@ export const actions = {
 export const getters = {
   fetchedPosts(state) {
     return state.fetchedPosts;
+  },
+  checkIfThereIsAToken(state) {
+    return state.token != null;
   }
 };

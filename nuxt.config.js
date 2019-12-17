@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 export default {
   mode: "universal",
   /*
@@ -35,7 +37,7 @@ export default {
    ** Environment variables
    */
   env: {
-    firebaseApiKey: "AIzaSyCQlzxt57PZqLWQCltvQ76dFKzP8XTIXnw"
+    firebaseApiKey: process.env.VUE_APP_FB_API_KEY
   },
   /*
    ** Plugins to load before mounting the App
@@ -44,7 +46,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [],
+  buildModules: ["@nuxtjs/dotenv"],
   /*
    ** Nuxt.js modules
    */
