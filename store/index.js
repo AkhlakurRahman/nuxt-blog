@@ -1,21 +1,28 @@
 import axios from "axios";
 
 export const state = () => ({
-  fetchedPosts: []
+  fetchedPosts: [],
+  token: null
 });
 
 export const mutations = {
   setPosts(state, posts) {
     state.fetchedPosts = posts;
   },
+
   addPost(state, post) {
     state.fetchedPosts.push(post);
   },
+
   editPost(state, editedPost) {
     const postIndex = state.fetchedPosts.findIndex(
       post => post.id === editedPost.id
     );
     state.fetchedPosts[postIndex] = editedPost;
+  },
+
+  authenticateUser(state, token) {
+    state.token = token;
   }
 };
 
@@ -35,6 +42,7 @@ export const actions = {
     }
   },
 
+  // Creating new post
   async addPost(vuexContext, post) {
     try {
       const newPost = { ...post, createdAt: new Date() };
@@ -48,6 +56,7 @@ export const actions = {
     }
   },
 
+  // Editing existing post
   async editPost(vuexContext, editedPost) {
     try {
       await axios.put(
@@ -61,8 +70,28 @@ export const actions = {
     }
   },
 
+  // Initial posts data
   setPosts(vuexContext, posts) {
     vuexContext.commit("setPosts", posts);
+  },
+
+  // signing in or logging in a user
+  async authenticateUser(vuexContext, authData) {
+    try {
+      let authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.firebaseApiKey}`;
+      if (authData.signup) {
+        authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.firebaseApiKey}`;
+      }
+      const formData = {
+        email: authData.email,
+        password: authData.password,
+        returnSecureToken: true
+      };
+      const res = await axios.post(authUrl, formData);
+      return vuexContext.commit("authenticateUser", res.data.idToken);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

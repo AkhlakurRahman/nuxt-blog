@@ -32,6 +32,12 @@ export default {
    */
   css: [],
   /*
+   ** Environment variables
+   */
+  env: {
+    firebaseApiKey: "AIzaSyCQlzxt57PZqLWQCltvQ76dFKzP8XTIXnw"
+  },
+  /*
    ** Plugins to load before mounting the App
    */
   plugins: ["~plugins/commonComponents.js", "~plugins/dateFormatter.js"],
